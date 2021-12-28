@@ -1,7 +1,7 @@
 ﻿using DDDCore.Event.Usecase;
-using Game.Actor.Script.Entity;
+using Actor.Entity;
 
-namespace Game.Actor.Scripts.UseCase.Repository
+namespace Actor.UseCase.Repository
 {
     public interface IActorRepository: IRepository<IActor>
     {

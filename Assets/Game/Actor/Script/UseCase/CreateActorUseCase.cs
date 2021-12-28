@@ -2,12 +2,12 @@
 using DDDCore.Event;
 using DDDCore.Implement;
 using DDDCore.Usecase.CQRS;
-using Game.Actor.Scripts.UseCase.Repository;
+using Actor.UseCase.Repository;
 using ThirtyParty.DDDCore.Implement.CQRS;
 using ThirtyParty.DDDCore.Usecase;
 
 
-namespace Game.Actor.Scripts.UseCase
+namespace Actor.UseCase
 {
     public class CreateActorInput:Input { }
     
@@ -18,8 +18,10 @@ namespace Game.Actor.Scripts.UseCase
 
         public override void Execute(CreateActorInput input, CqrsCommandPresenter output) {
             var id    = Guid.NewGuid().ToString();
-            var actor = new Script.Entity.Actor(id);
+            var actor = new Entity.Actor(id);
             repository.Save(actor);
+            
+            domainEventBus.PostAll(actor);
 
             output.SetId(id);
             output.SetExitCode(ExitCode.SUCCESS);

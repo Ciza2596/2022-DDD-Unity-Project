@@ -1,6 +1,6 @@
 ﻿using DDDCore.Model;
 
-namespace Game.Actor.Script.Entity
+namespace Actor.Entity
 {
     public interface IActor : IAggregateRoot { }
 }

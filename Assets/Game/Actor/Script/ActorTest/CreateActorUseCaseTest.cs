@@ -1,11 +1,11 @@
-using System;
+
 using DDDCore.Implement;
 using DDDCore.Usecase.CQRS;
 using NUnit.Framework;
 using DDDTestFrameWork;
-using Game.Actor.Script.Entity;
-using Game.Actor.Scripts.UseCase;
-using Game.Actor.Scripts.UseCase.Repository;
+using Actor.Entity.Event;
+using Actor.UseCase;
+using Actor.UseCase.Repository;
 using NSubstitute;
 using ThirtyParty.DDDCore.DDDTestFramwork;
 using ThirtyParty.DDDCore.Implement.CQRS;
@@ -17,14 +17,16 @@ public class CreateActorUseCaseTest : DDDUnitTestFixture
 {
     [Test]
     public void Should_Success_When_Create_Actor() {
-        
         Container.Bind<IActorRepository>().FromSubstitute();
         Container.Bind<CreateActorUseCase>().AsSingle();
-        
-        var   createActorUseCase = Container.Resolve<CreateActorUseCase>();
-        var   repository         = Container.Resolve<IActorRepository>();
-        Actor actor              = null;
-        repository.Save(Arg.Do<Actor>(a => actor = a));
+
+        var                createActorUseCase = Container.Resolve<CreateActorUseCase>();
+        var                repository         = Container.Resolve<IActorRepository>();
+        Actor.Entity.Actor actor              = null;
+        repository.Save(Arg.Do<Actor.Entity.Actor>(a => actor = a));
+
+        ActorCreated actorCreated = null;
+        publisher.Publish(Arg.Do<ActorCreated>(e => actorCreated = e));
 
         var input  = new CreateActorInput();
         var output = CqrsCommandPresenter.NewInstance();
@@ -40,10 +42,10 @@ public class CreateActorUseCaseTest : DDDUnitTestFixture
                       actorId = actor.GetId();
                   })
             .And("", () => {
-                         // publisher.Received(1)
-                         //          .Publish(Arg.Is<DomainEvent>(domainEvent =>
-                         //                                           domainEvent.GetType() == typeof(ActorCreated)));
-                         // Assert.AreEqual(actorId, actorCreated.actorId, "ActorId is not equal");
+                         publisher.Received(1)
+                                  .Publish(Arg.Is<DomainEvent>(domainEvent =>
+                                                                   domainEvent.GetType() == typeof(ActorCreated)));
+                         Assert.AreEqual(actorId, actorCreated.ActorId, "ActorId is not equal");
                      })
             .And("the result is success",
                  () => {
