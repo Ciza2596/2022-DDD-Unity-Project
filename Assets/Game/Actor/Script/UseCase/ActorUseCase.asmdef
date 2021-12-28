@@ -1,0 +1,18 @@
+{
+    "name": "ActorUseCase",
+    "rootNamespace": "ActorUseCase",
+    "references": [
+        "GUID:b18a16a3dcf3d01428b99057a0d9b91e",
+        "GUID:f22f718b9b174a74d89f976a69f9dd2a",
+        "GUID:7d7dfc31db72e3a4086ea4a02fbf0c78"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
