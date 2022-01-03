@@ -1,9 +1,10 @@
 {
-    "name": "ActorEntity",
-    "rootNamespace": "ActorEntity",
+    "name": "ActorApplication",
+    "rootNamespace": "",
     "references": [
-        "GUID:b18a16a3dcf3d01428b99057a0d9b91e",
-        "GUID:c78f3be50d4774e4bbec392c24be540b"
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:f22f718b9b174a74d89f976a69f9dd2a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

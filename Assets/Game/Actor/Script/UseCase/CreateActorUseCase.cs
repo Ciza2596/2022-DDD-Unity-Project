@@ -9,7 +9,10 @@ using ThirtyParty.DDDCore.Usecase;
 
 namespace Actor.UseCase
 {
-    public class CreateActorInput:Input { }
+    public class CreateActorInput:Input
+    {
+        public string ActorDataId { get; set; }
+    }
     
     public class CreateActorUseCase:UseCase<CreateActorInput,CqrsCommandPresenter, IActorRepository>
     {
@@ -17,8 +20,9 @@ namespace Actor.UseCase
             : base(domainEventBus, repository) { }
 
         public override void Execute(CreateActorInput input, CqrsCommandPresenter output) {
-            var id    = Guid.NewGuid().ToString();
-            var actor = new Entity.Actor(id);
+            var     id     = Guid.NewGuid().ToString();
+            var     dataId = input.ActorDataId;
+            var actor  = new Entity.Actor(id, dataId);
             repository.Save(actor);
             
             domainEventBus.PostAll(actor);

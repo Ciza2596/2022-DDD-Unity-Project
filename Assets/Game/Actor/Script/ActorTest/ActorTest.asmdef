@@ -8,7 +8,8 @@
         "DDDTestFramework",
         "ActorEntity",
         "ActorUseCase",
-        "MessagePipe"
+        "MessagePipe",
+        "ActorEvent"
     ],
     "includePlatforms": [
         "Editor"

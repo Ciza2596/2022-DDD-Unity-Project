@@ -1,4 +1,3 @@
-
 using DDDCore.Implement;
 using DDDCore.Usecase.CQRS;
 using NUnit.Framework;
@@ -31,21 +30,26 @@ public class CreateActorUseCaseTest : DDDUnitTestFixture
         var input  = new CreateActorInput();
         var output = CqrsCommandPresenter.NewInstance();
 
-        string actorId = null;
+        string actorId     = null;
+        var    actorDataId = NewGuid();
         Scenario("Create a actor with valid actor id.")
+            .Given("Give a actor data id",
+                   () => { input.ActorDataId = actorDataId; })
             .When("Create a actor.", () => { createActorUseCase.Execute(input, output); })
             .Then("The repository should save actor, and id equals",
                   () => {
                       repository.ReceivedWithAnyArgs(1).Save(null);
                       Assert.NotNull(actor,         "actor isnull");
                       Assert.NotNull(actor.GetId(), "id is null");
+                      Assert.AreEqual(actorDataId, actor.DataId, $"DataId is not equal");
                       actorId = actor.GetId();
-                  })
+                  }) 
             .And("", () => {
                          publisher.Received(1)
                                   .Publish(Arg.Is<DomainEvent>(domainEvent =>
                                                                    domainEvent.GetType() == typeof(ActorCreated)));
                          Assert.AreEqual(actorId, actorCreated.ActorId, "ActorId is not equal");
+                         Assert.AreEqual(actorDataId, actorCreated.ActorDataId, "ActorDataId is not equal");
                      })
             .And("the result is success",
                  () => {
