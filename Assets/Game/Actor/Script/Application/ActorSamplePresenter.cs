@@ -1,16 +1,17 @@
+using Actor.Adapter;
 using AutoBot.Scripts.Utilities.Extensions;
-using UnityEngine;
 using Zenject;
 
 namespace Actor.Application
 {
     public class ActorSamplePresenter : IInitializable
     {
-        [Inject] private ActorReference reference;
+        [Inject] private ActorReference  actorReference;
+        [Inject] private ActorController actorController;
 
 
         public void Initialize() {
-            reference.CreateActorButton.BindClick(() => { Debug.Log("Create"); });
+            actorReference.CreateActorButton.BindClick(actorController.CreateActor);
         }
     }
 }
