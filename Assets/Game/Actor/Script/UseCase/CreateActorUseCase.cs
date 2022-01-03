@@ -11,7 +11,12 @@ namespace Actor.UseCase
 {
     public class CreateActorInput:Input
     {
-        public string ActorDataId { get; set; }
+
+        public string ActorDataId { get;}
+
+        public CreateActorInput(string actorDataId) {
+            ActorDataId = actorDataId;
+        }
     }
     
     public class CreateActorUseCase:UseCase<CreateActorInput,CqrsCommandPresenter, IActorRepository>

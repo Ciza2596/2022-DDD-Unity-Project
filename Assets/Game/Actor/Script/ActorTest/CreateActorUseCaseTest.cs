@@ -26,15 +26,17 @@ public class CreateActorUseCaseTest : DDDUnitTestFixture
 
         ActorCreated actorCreated = null;
         publisher.Publish(Arg.Do<ActorCreated>(e => actorCreated = e));
-
-        var input  = new CreateActorInput();
-        var output = CqrsCommandPresenter.NewInstance();
-
+        
+        
+        CreateActorInput input  = null;
+        var              output = CqrsCommandPresenter.NewInstance();
+        
         string actorId     = null;
         var    actorDataId = NewGuid();
+        
         Scenario("Create a actor with valid actor id.")
             .Given("Give a actor data id",
-                   () => { input.ActorDataId = actorDataId; })
+                   () => { input = new CreateActorInput(actorDataId); })
             .When("Create a actor.", () => { createActorUseCase.Execute(input, output); })
             .Then("The repository should save actor, and id equals",
                   () => {

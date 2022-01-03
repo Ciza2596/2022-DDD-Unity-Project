@@ -4,16 +4,16 @@ using ThirtyParty.DDDCore.Implement.CQRS;
 using Zenject;
 using Utilities.Contract;
 
-namespace Actor.Adapter
+namespace Actor.Adapter.Controller
 {
     public class ActorController
     {
 
         [Inject] private CreateActorUseCase createActorUseCase;
         
-        public void CreateActor() {
+        public void CreateActor(string actorDataId) {
 
-            var input  = new CreateActorInput();
+            var input  = new CreateActorInput(actorDataId);
             var output = new CqrsCommandPresenter();
             createActorUseCase.Execute(input, output);
 

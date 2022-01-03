@@ -659,6 +659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae9543827c404a4ab1645be361b56e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setting:
+    ActorPrefab: {fileID: 0}
 --- !u!114 &1822893793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,7 +673,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: 6525c8e21cccf254496d24d65d7e1368, type: 2}
   _monoInstallers:
   - {fileID: 1822893792}
   _installerPrefabs: []

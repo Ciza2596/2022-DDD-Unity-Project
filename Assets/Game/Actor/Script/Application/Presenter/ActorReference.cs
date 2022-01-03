@@ -2,11 +2,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Actor.Application
+namespace Actor.Application.Preseter
 {
     [Serializable]
     public class ActorReference:MonoBehaviour
     {
-        public Button CreateActorButton;
+        public Button     CreateActorButton;
     }
 }
