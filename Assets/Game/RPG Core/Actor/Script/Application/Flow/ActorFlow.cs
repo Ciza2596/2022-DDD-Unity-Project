@@ -15,6 +15,9 @@ namespace Actor.Application.Flow
             
             // Display actor details by presenter.
             actorSamplePresenter.ShowActor(actorComponent, dataId);
+
+            //
+            actorSamplePresenter.ShowActorCount();
         }
     }
 }

@@ -1,5 +1,4 @@
 using Actor.Adapter.Controller;
-using Actor.Adapter.EventHandler;
 using Actor.Application.Component;
 using Actor.Application.Data;
 using AutoBot.Scripts.Utilities.Extensions;
@@ -23,7 +22,7 @@ namespace Actor.Application.Presenter
         }
 
         public void ShowActor(ActorComponent actorComponent, string dataId) {
-            var position       = Random.onUnitSphere * 3;
+            var position = Random.onUnitSphere * 3;
             actorComponent.SetPosition(position);
             var actorData = actorDataOverview.GetData(dataId);
 
@@ -33,6 +32,12 @@ namespace Actor.Application.Presenter
             }
 
             actorComponent.SetSpriteRenderer(actorData.MainSprite);
+        }
+
+        public void ShowActorCount() {
+            var countText = actorReference.Text;
+            var actors    = actorController.GetAllActor();
+            countText.text = $"Actor Count: {actors.Count}";
         }
     }
 }

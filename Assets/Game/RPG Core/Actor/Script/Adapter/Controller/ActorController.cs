@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using Actor.Entity;
 using Actor.UseCase;
+using Actor.UseCase.Repository;
 using DDDCore.Usecase.CQRS;
 using ThirtyParty.DDDCore.Implement.CQRS;
 using Zenject;
@@ -10,6 +13,7 @@ namespace Actor.Adapter.Controller
     {
 
         [Inject] private CreateActorUseCase createActorUseCase;
+        [Inject] private IActorRepository   actorRepository;
         
         public void CreateActor(string actorDataId) {
 
@@ -19,6 +23,11 @@ namespace Actor.Adapter.Controller
 
             var exitCode = output.GetExitCode();
             Contract.Ensure(exitCode == ExitCode.SUCCESS, "ExitCode should be success.");
+        }
+
+        public List<IActor> GetAllActor() {
+            var actors = actorRepository.GetAll();
+            return actors;
         }
     }
 }
