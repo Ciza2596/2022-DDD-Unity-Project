@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b0fcb14a3583242b2d96c17baf56fd, type: 3}
+  m_Name: ActorDataOverview
+  m_EditorClassIdentifier: 
+  datas:
+  - {fileID: 11400000, guid: 65a0e37a5cf2d4442856d37261e3c242, type: 2}
+  - {fileID: 11400000, guid: 17a6d5bf5190e53408d7eca41c4e0ad8, type: 2}
+  - {fileID: 11400000, guid: 8d545b33978d32846acb22df3dcb0c77, type: 2}
+  - {fileID: 11400000, guid: 7aa15723056f27042a3cd56ab42bfaae, type: 2}
+  - {fileID: 11400000, guid: 385b67af5c8f346469f3949732b98493, type: 2}

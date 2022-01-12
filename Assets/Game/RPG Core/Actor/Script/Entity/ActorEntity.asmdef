@@ -1,0 +1,17 @@
+{
+    "name": "ActorEntity",
+    "rootNamespace": "ActorEntity",
+    "references": [
+        "GUID:b18a16a3dcf3d01428b99057a0d9b91e",
+        "GUID:c78f3be50d4774e4bbec392c24be540b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
