@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Actor.Data
+namespace Actor.Application.Data
 {
     
     [CreateAssetMenu(fileName =  "New ActorData", menuName = "Data/ActorData")]

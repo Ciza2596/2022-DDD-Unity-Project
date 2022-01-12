@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Actor.Application.Preseter
+namespace Actor.Application.Presenter
 {
     [Serializable]
     public class ActorReference:MonoBehaviour

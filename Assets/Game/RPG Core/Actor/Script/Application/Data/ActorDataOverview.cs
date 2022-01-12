@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Actor.Data
+namespace Actor.Application.Data
 {
     [CreateAssetMenu(fileName =  "New ActorDataOverview", menuName = "DataOverview/ActorDataOverview")]
     public class ActorDataOverview : ScriptableObject

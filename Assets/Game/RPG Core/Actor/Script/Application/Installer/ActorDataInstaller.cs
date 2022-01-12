@@ -1,4 +1,4 @@
-﻿using Actor.Data;
+﻿using Actor.Application.Data;
 using Zenject;
 
 namespace Actor.Application.Installer

@@ -7,11 +7,11 @@ namespace Actor.Adapter.EventHandler
 {
     public class ActorEventHandler : DomainEventHandler
     {
-        [Inject] private IActorPresenter actorPresenter;
+        [Inject] private IActorFlow actorFlow;
 
         public ActorEventHandler(IDomainEventBus domainEventBus)
             : base(domainEventBus) {
-            Register<ActorCreated>(created => { actorPresenter.CreateActor(created.ActorDataId); });
+            Register<ActorCreated>(created => { actorFlow.WhenActorCreated(created.ActorDataId); });
         }
     }
 }

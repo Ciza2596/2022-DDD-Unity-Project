@@ -1,6 +1,6 @@
 ﻿using Actor.Application.Component;
 
-namespace Actor.Application.Preseter
+namespace Actor.Application.Presenter
 {
     public class ActorFactory
     {

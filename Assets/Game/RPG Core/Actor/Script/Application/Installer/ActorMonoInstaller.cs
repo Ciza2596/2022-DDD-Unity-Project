@@ -2,8 +2,10 @@ using System;
 using Actor.Adapter.Controller;
 using Actor.Adapter.EventHandler;
 using Actor.Application.Component;
-using Actor.Application.Preseter;
+using Actor.Application.Presenter;
 using Actor.UseCase;
+using Actor.Adapter.Repository;
+using Actor.Application.Flow;
 using Actor.UseCase.Repository;
 using DDDCore.Implement;
 using UnityEngine;
@@ -20,6 +22,7 @@ namespace Actor.Application.Installer
             DDDInstaller.Install(Container);
             // 4: Application layer
             Container.BindInterfacesAndSelfTo<ActorSamplePresenter>().AsSingle();
+            Container.Bind<IActorFlow>().To<ActorFlow>().AsSingle();
             // 3: Adapter layer
             Container.Bind<ActorController>().AsSingle();
             Container.Bind<ActorEventHandler>().AsSingle().NonLazy();

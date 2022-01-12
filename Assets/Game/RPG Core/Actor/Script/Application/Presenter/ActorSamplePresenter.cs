@@ -1,17 +1,17 @@
 using Actor.Adapter.Controller;
 using Actor.Adapter.EventHandler;
-using Actor.Data;
+using Actor.Application.Component;
+using Actor.Application.Data;
 using AutoBot.Scripts.Utilities.Extensions;
 using UnityEngine;
 using Zenject;
 
-namespace Actor.Application.Preseter
+namespace Actor.Application.Presenter
 {
-    public class ActorSamplePresenter : IInitializable, IActorPresenter
+    public class ActorSamplePresenter : IInitializable
     {
         [Inject] private ActorReference    actorReference;
         [Inject] private ActorController   actorController;
-        [Inject] private ActorFactory      actorFactory;
         [Inject] private ActorDataOverview actorDataOverview;
 
 
@@ -22,8 +22,7 @@ namespace Actor.Application.Preseter
                                                        });
         }
 
-        public void CreateActor(string dataId) {
-            var actorComponent = actorFactory.Create();
+        public void ShowActor(ActorComponent actorComponent, string dataId) {
             var position       = Random.onUnitSphere * 3;
             actorComponent.SetPosition(position);
             var actorData = actorDataOverview.GetData(dataId);
